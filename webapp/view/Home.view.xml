@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.belysse.bartender.print.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" 	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" showHeader="false">
+    	<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="{i18n>title}"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="true" >
+			<f:content>
+				<Label text="{i18n>labelGroup}" />
+				<Select items="{oViewModel>/LabelGroupData}" forceSelection="false" change="onSelectLabelGroup">
+				<core:Item key="{oViewModel>LabelGroup}" text="{oViewModel>LabelGroup}"/>
+				</Select>
+				<Label text="{i18n>labelType}" />
+				<Select items="{oViewModel>/LabelTypeData}" forceSelection="false">
+				<core:Item key="{oViewModel>LabelType}" text="{oViewModel>LabelType}"/>
+				</Select>
+				<Label text="{i18n>plant}"/>
+				<Input showValueHelp="true"/>
+                <Label text="{i18n>printer}" />
+				<Select/>
+                <Label text="{i18n>documentType}"/>
+				<Select items="{oViewModel>/DocTypeData}" forceSelection="false">
+				<core:Item key="{oViewModel>DocumentType}" text="{oViewModel>DocumentType}"/>
+				</Select>
+				<Label text="{i18n>documentNumber}"/>
+				<Input showValueHelp="true"/>
+                <Label text="{i18n>HUNumber}"/>
+				<Input showValueHelp="true"/>
+                <Label text="{i18n>batchNumber}"/>
+				<Input showValueHelp="true"/>
+                <Label text="{i18n>materialNumber}"/>
+				<Input showValueHelp="true"/>
+                 <Label text="{i18n>NOOfLabels}"/>
+				<Input showValueHelp="true"/>
+			</f:content>
+		</f:SimpleForm>
+        	<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>exceute}" type="Emphasized" />
+				
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

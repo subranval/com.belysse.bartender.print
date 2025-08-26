@@ -1,0 +1,45 @@
+{
+  "LabelGroupData": [
+    { "LabelGroup": "Inbound" },
+    { "LabelGroup": "Production" },
+    { "LabelGroup": "Production + Shipping" },
+    { "LabelGroup": "Shipping" }
+  ],
+  "LabelTypeDataMap": {
+    "Inbound": [
+      { "LabelType": "Backing" }
+    ],
+    "Production": [
+      { "LabelType": "PRDDOOS (Box label)" },
+      { "LabelType": "PRDTGL (Tile Label)" },
+      { "LabelType": "PRDPLA" },
+      { "LabelType": "ITC_PRDROL" },
+      { "LabelType": "PRDMROL_02" },
+      { "LabelType": "PRDMROL" }
+    ],
+    "Production + Shipping": [
+      { "LabelType": "PRDPALLET (pallet label)" }
+    ],
+    "Shipping": [
+      { "LabelType": "VRZROL (Shipping label ITC)" },
+      { "LabelType": "VRZTGL (shipping label Modulyss)" },
+      { "LabelType": "ARTCO" },
+      { "LabelType": "SSCC" },
+      { "LabelType": "Retour" },
+      { "LabelType": "HU01" }
+    ]
+  },
+  "DocTypeDataMap": {
+    "Inbound": [
+      { "DocumentType": "Inbound delivery" }
+    ],
+    "Production": [
+      { "DocumentType": "Production Order" }
+    ],
+    "Production + Shipping": [],
+    "Shipping": [
+      { "DocumentType": "Freight Order" },
+      { "DocumentType": "Delivery" }
+    ]
+  }
+}
