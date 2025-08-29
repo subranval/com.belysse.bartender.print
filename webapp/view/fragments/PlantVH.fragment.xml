@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  xmlns:form="sap.ui.layout.form" 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+  xmlns:table="sap.ui.table"  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+  <Dialog title="{i18n>selectPlant}" contentWidth="100%" contentHeight="100%">
+   <smartFilterBar:SmartFilterBar id="idSmartFilterBar"  entitySet="I_Plant" search="onFilterSearch" showFilterConfiguration="false">
+   <smartFilterBar:controlConfiguration>
+   <smartFilterBar:ControlConfiguration controlType="input" key="Plant" visibleInAdvancedArea="true" label="{i18n>searchTerm}"/>
+   </smartFilterBar:controlConfiguration>
+   </smartFilterBar:SmartFilterBar>
+    <smartTable:SmartTable showPasteButton="false" showTablePersonalisation="true" tableType="ResponsiveTable" id="idPlantTable" enableAutoBinding="true" entitySet="I_Plant"  initiallyVisibleFields="Plant,PlantName" smartFilterId="idSmartFilterBar">
+    <Table mode="SingleSelectMaster" growing="true"/>
+    </smartTable:SmartTable>
+    <beginButton>
+     <Button text="{i18n>ok}" type="Emphasized" press="onSelectPlant" />
+    </beginButton>
+    <endButton>
+      <Button text="{i18n>close}" type="Emphasized" press="onClosePlant" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

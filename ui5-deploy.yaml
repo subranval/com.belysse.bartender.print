@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.belysse.bartender.print
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: S4_DEPLOY
+          url: https://my422642.s4hana.cloud.sap/
+          client: '080'
+          authenticationType: reentranceTicket # SAML support for vscode
+        app:
+          name: ZENH_LABELPRINT
+          package: ZENHPRINT
+          transport: PO7K900565
+        exclude:
+          - /test/

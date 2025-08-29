@@ -30,16 +30,8 @@ server:
       configuration:
         ignoreCertError: false
         backend:
-          - url: https://my422642-api.s4hana.cloud.sap/
-            client: '080'
-            authenticationType: SAMLAssertion
-            destination: S4_DEPLOY
+          - destination: S4_REFACTORING
             path: /sap
-          - url: https://my422642-api.s4hana.cloud.sap/
-            client: '080'
-            authenticationType: SAMLAssertion
-            destination: S4_DEPLOY
-            path: /sap/opu/odata/sap/ZAPI_ENHLABELPRINTING/
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

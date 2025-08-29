@@ -31,7 +31,7 @@
 				<core:Item key="{oViewModel>LabelType}" text="{oViewModel>LabelType}"/>
 				</Select>
 				<Label text="{i18n>plant}"/>
-				<Input showValueHelp="true"/>
+				<Input showValueHelp="true" value="{oViewModel>/Plant}" valueHelpRequest="openPlantVH"/>
                 <Label text="{i18n>printer}" />
 				<Select/>
                 <Label text="{i18n>documentType}"/>
@@ -39,7 +39,15 @@
 				<core:Item key="{oViewModel>DocumentType}" text="{oViewModel>DocumentType}"/>
 				</Select>
 				<Label text="{i18n>documentNumber}"/>
-				<Input showValueHelp="true"/>
+					<MultiInput
+			
+			suggestionItems="{
+				path: '/ZI_DocumentNumberVH',
+				sorter: { path: 'DocumentNumber' }
+			}"
+			valueHelpRequest="openDocumentNoVH">
+			<core:Item key="{DocumentNumber}" text="{DocumentNumber}" />
+		</MultiInput>
                 <Label text="{i18n>HUNumber}"/>
 				<Input showValueHelp="true"/>
                 <Label text="{i18n>batchNumber}"/>
