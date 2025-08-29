@@ -2,18 +2,18 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<SelectDialog
-		id="docvalueHelpDialog"
-		title="{i18n>documentNumber}"
-		items="{/ZI_DocumentNumberVH}"
+		id="materialvalueHelpDialog"
+		title="{i18n>material}"
+		items="{/ZI_ProductVH}"
 		search="_handleValueHelpSearch"
-		confirm="_handleDocVHClose"
-		cancel="_handleDocVHClose"
+		confirm="_handleMaterialVHClose"
+		cancel="_handleMaterialVHClose"
 		multiSelect="true">
 		<StandardListItem
 			icon=""
 			iconDensityAware="false"
 			iconInset="false"
-			title="{DocumentNumber}"
+			title="{Product}"
 			description="" />
 	</SelectDialog>
 </core:FragmentDefinition>

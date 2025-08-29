@@ -2,18 +2,18 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<SelectDialog
-		id="docvalueHelpDialog"
-		title="{i18n>documentNumber}"
-		items="{/ZI_DocumentNumberVH}"
+		id="huvalueHelpDialog"
+		title="{i18n>HUNumber}"
+		items="{/I_HandlingUnitHeader}"
 		search="_handleValueHelpSearch"
-		confirm="_handleDocVHClose"
-		cancel="_handleDocVHClose"
+		confirm="_handleHUVHClose"
+		cancel="_handleHUVHClose"
 		multiSelect="true">
 		<StandardListItem
 			icon=""
 			iconDensityAware="false"
 			iconInset="false"
-			title="{DocumentNumber}"
+			title="{HandlingUnitExternalID}"
 			description="" />
 	</SelectDialog>
 </core:FragmentDefinition>

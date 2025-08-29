@@ -2,18 +2,18 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<SelectDialog
-		id="docvalueHelpDialog"
-		title="{i18n>documentNumber}"
-		items="{/ZI_DocumentNumberVH}"
+		id="batchvalueHelpDialog"
+		title="{i18n>batch}"
+		items="{/I_Batch}"
 		search="_handleValueHelpSearch"
-		confirm="_handleDocVHClose"
-		cancel="_handleDocVHClose"
+		confirm="_handleBatchVHClose"
+		cancel="_handleBatchVHClose"
 		multiSelect="true">
 		<StandardListItem
 			icon=""
 			iconDensityAware="false"
 			iconInset="false"
-			title="{DocumentNumber}"
+			title="{Batch}"
 			description="" />
 	</SelectDialog>
 </core:FragmentDefinition>

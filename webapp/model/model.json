@@ -1,4 +1,7 @@
 {
+  "HUFieldVisible":false,
+  "BatchFieldVisible":false,
+  "MaterialVisible":false,
   "LabelGroupData": [
     { "LabelGroup": "Inbound" },
     { "LabelGroup": "Production" },

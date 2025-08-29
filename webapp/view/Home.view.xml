@@ -22,24 +22,24 @@
 			columnsM="1"
 			singleContainerFullSize="true" >
 			<f:content>
-				<Label text="{i18n>labelGroup}" />
+				<Label text="{i18n>labelGroup}" required="true"/>
 				<Select items="{oViewModel>/LabelGroupData}" forceSelection="false" change="onSelectLabelGroup">
 				<core:Item key="{oViewModel>LabelGroup}" text="{oViewModel>LabelGroup}"/>
 				</Select>
-				<Label text="{i18n>labelType}" />
-				<Select items="{oViewModel>/LabelTypeData}" forceSelection="false">
+				<Label text="{i18n>labelType}" required="true"/>
+				<Select items="{oViewModel>/LabelTypeData}" forceSelection="false" change="onSelectLabelType">
 				<core:Item key="{oViewModel>LabelType}" text="{oViewModel>LabelType}"/>
 				</Select>
-				<Label text="{i18n>plant}"/>
+				<Label text="{i18n>plant}" required="true"/>
 				<Input showValueHelp="true" value="{oViewModel>/Plant}" valueHelpRequest="openPlantVH"/>
-                <Label text="{i18n>printer}" />
+                <Label text="{i18n>printer}" required="true"/>
 				<Select/>
-                <Label text="{i18n>documentType}"/>
-				<Select items="{oViewModel>/DocTypeData}" forceSelection="false">
+                <Label text="{i18n>documentType}" required="true"/>
+				<Select items="{oViewModel>/DocTypeData}" forceSelection="false" selectedKey="{oViewModel>/DocumentType}" change="onSelectDocType">
 				<core:Item key="{oViewModel>DocumentType}" text="{oViewModel>DocumentType}"/>
 				</Select>
-				<Label text="{i18n>documentNumber}"/>
-					<MultiInput
+				<Label text="{i18n>documentNumber}" required="true"/>
+					<MultiInput id="DocTypeInput"
 			
 			suggestionItems="{
 				path: '/ZI_DocumentNumberVH',
@@ -48,14 +48,38 @@
 			valueHelpRequest="openDocumentNoVH">
 			<core:Item key="{DocumentNumber}" text="{DocumentNumber}" />
 		</MultiInput>
-                <Label text="{i18n>HUNumber}"/>
-				<Input showValueHelp="true"/>
-                <Label text="{i18n>batchNumber}"/>
-				<Input showValueHelp="true"/>
-                <Label text="{i18n>materialNumber}"/>
-				<Input showValueHelp="true"/>
-                 <Label text="{i18n>NOOfLabels}"/>
-				<Input showValueHelp="true"/>
+                <Label text="{i18n>HUNumber}" visible="{oViewModel>/HUFieldVisible}"/>
+				<MultiInput id="HUInput" visible="{oViewModel>/HUFieldVisible}"
+			
+			suggestionItems="{
+				path: '/I_HandlingUnitHeader',
+				sorter: { path: 'HandlingUnitExternalID' }
+			}"
+			valueHelpRequest="openHUNoVH">
+			<core:Item key="{HandlingUnitExternalID}" text="{HandlingUnitExternalID}" />
+		 </MultiInput>
+                <Label text="{i18n>batchNumber}" visible="{oViewModel>/BatchFieldVisible}"/>
+				<MultiInput id="BatchInput" visible="{oViewModel>/BatchFieldVisible}"
+			
+			suggestionItems="{
+				path: '/I_Batch',
+				sorter: { path: 'Batch' }
+			}"
+			valueHelpRequest="openBatchVH">
+			<core:Item key="{Batch}" text="{Batch}" />
+		 </MultiInput>
+                <Label text="{i18n>materialNumber}" visible="{oViewModel>/MaterialVisible}"/>
+				<MultiInput id="MaterialInput" visible="{oViewModel>/MaterialVisible}"
+			
+			suggestionItems="{
+				path: '/ZI_ProductVH',
+				sorter: { path: 'Product' }
+			}"
+			valueHelpRequest="openMaterialVH">
+			<core:Item key="{Product}" text="{Product}" />
+		 </MultiInput>
+                 <Label text="{i18n>NOOfLabels}" required="true"/>
+				<Input/>
 			</f:content>
 		</f:SimpleForm>
         	<footer>
