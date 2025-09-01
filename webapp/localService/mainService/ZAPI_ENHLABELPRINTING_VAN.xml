@@ -156,6 +156,12 @@
                 <Annotation Term="UI.HiddenFilter"/>
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="_Entities"/>
         </Schema>
     </edmx:DataServices>

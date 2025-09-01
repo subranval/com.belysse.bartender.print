@@ -116,6 +116,77 @@
                 <Property Name="DataController9" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Data Controller" sap:quickinfo="BP: Data Controller (Internal Use Only)"/>
                 <Property Name="DataController10" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Data Controller" sap:quickinfo="BP: Data Controller (Internal Use Only)"/>
             </EntityType>
+            <EntityType Name="I_HandlingUnitHeaderType" sap:label="Handling Unit Header" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="HandlingUnitInternalID"/>
+                </Key>
+                <Property Name="HandlingUnitInternalID" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Internal HU number" sap:quickinfo="Internal Handling Unit Number"/>
+                <Property Name="HandlingUnitCharUUID" Type="Edm.Guid" sap:display-format="UpperCase" sap:label="UUID" sap:quickinfo="Type of Date used in the Shipping Label for Handling Units"/>
+                <Property Name="HandlingUnitExternalID" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Handling Unit" sap:quickinfo="External Handling Unit Identification"/>
+                <Property Name="HandlingUnitExternalIdType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="HU Identfier Type" sap:quickinfo="Type of External Handling Unit Identifier"/>
+                <Property Name="ShippingPoint" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Shipping Point" sap:quickinfo="Shipping Point / Receiving Point"/>
+                <Property Name="LoadingPoint" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Loading Point"/>
+                <Property Name="PackagingMaterial" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Packaging Material"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="SalesDocumentItemCategory" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Item Category" sap:quickinfo="Sales Document Item Category"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="RefDistCh-Cust/Mat." sap:quickinfo="Reference distrib.channel for cust.and material masters"/>
+                <Property Name="StorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location"/>
+                <Property Name="Warehouse" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Warehouse Number" sap:quickinfo="Warehouse Number/Warehouse Complex"/>
+                <Property Name="GrossWeight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WeightUnit" sap:label="Total Weight" sap:quickinfo="Total Weight of Handling Unit"/>
+                <Property Name="NetWeight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WeightUnit" sap:label="Loading Weight" sap:quickinfo="Loading Weight of Handling Unit"/>
+                <Property Name="HandlingUnitMaxWeight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WeightUnit" sap:label="Allowed Load Weight" sap:quickinfo="Allowed Loading Weight of a Handling Unit"/>
+                <Property Name="WeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Weight" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitTareWeight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="HandlingUnitTareWeightUnit" sap:label="Tare Weight" sap:quickinfo="Tare Weight of Handling Unit"/>
+                <Property Name="HandlingUnitTareWeightUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Weight" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitWeightTolerance" Type="Edm.Decimal" Precision="3" Scale="1" sap:label="Excess Wt Tolerance" sap:quickinfo="Excess Weight Tolerance for Handling Unit"/>
+                <Property Name="GrossVolume" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="VolumeUnit" sap:label="Total Volume" sap:quickinfo="Total Volume of Handling Unit"/>
+                <Property Name="HandlingUnitNetVolume" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="VolumeUnit" sap:label="Loading Volume" sap:quickinfo="Loading Volume of Handling Unit"/>
+                <Property Name="HandlingUnitMaxVolume" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="VolumeUnit" sap:label="Allowed Volume" sap:quickinfo="Allowed Loading Volume for Handling Unit"/>
+                <Property Name="VolumeUnit" Type="Edm.String" MaxLength="3" sap:label="Volume Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitTareVolume" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="HandlingUnitTareVolumeUnit" sap:label="Tare Volume" sap:quickinfo="Tare Volume of Handling Unit"/>
+                <Property Name="HandlingUnitTareVolumeUnit" Type="Edm.String" MaxLength="3" sap:label="Volume Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitVolumeTolerance" Type="Edm.Decimal" Precision="3" Scale="1" sap:label="Excess Volume Tol." sap:quickinfo="Excess Volume Tolerance of the Handling Unit"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Record Creation Date"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Time" sap:quickinfo="Entry time"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="Name of Person Who Changed Object"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed On" sap:quickinfo="Last Changed On"/>
+                <Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Changed at" sap:quickinfo="Time last change was made"/>
+                <Property Name="HandlingUnitGroup1" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Handling Unit Gr. 1" sap:quickinfo="Handling Unit Group 1                     (Freely Definable)"/>
+                <Property Name="HandlingUnitGroup2" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Handling Unit Gr. 2" sap:quickinfo="Handling Unit Group 2                     (Freely Definable)"/>
+                <Property Name="HandlingUnitGroup3" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Handling Unit Gr. 3" sap:quickinfo="Handling Unit Group 3                     (Freely Definable)"/>
+                <Property Name="HandlingUnitGroup4" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Handling Unit Gr. 4" sap:quickinfo="Handling Unit Group 4                     (Freely Definable)"/>
+                <Property Name="HandlingUnitGroup5" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Handling Unit Gr. 5" sap:quickinfo="Handling Unit Group 5                     (Freely Definable)"/>
+                <Property Name="HandlingUnitLength" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UnitOfMeasureDimension" sap:label="Length"/>
+                <Property Name="HandlingUnitWidth" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UnitOfMeasureDimension" sap:label="Width"/>
+                <Property Name="HandlingUnitHeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UnitOfMeasureDimension" sap:label="Height"/>
+                <Property Name="UnitOfMeasureDimension" Type="Edm.String" MaxLength="3" sap:label="Unit of Dimension" sap:quickinfo="Unit of Dimension for Length/Width/Height" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitBaseUnitOfMeasure" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="HandlingUnitDeliveryWithPkgItm" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Generated delivery" sap:quickinfo="Delivery in Which Packaging Material Is Generated as an Item"/>
+                <Property Name="HandlingUnitGenDeliveryItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Generated item" sap:quickinfo="Generated delivery item"/>
+                <Property Name="HandlingUnitContentDescription" Type="Edm.String" MaxLength="40" sap:label="Content" sap:quickinfo="Description of Handling Unit Content"/>
+                <Property Name="PackagingMaterialType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Packaging Mat. Type" sap:quickinfo="Packaging Material Type"/>
+                <Property Name="PackagingMaterialGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Matl Grp Pack.Matls" sap:quickinfo="Material Group: Packaging Materials"/>
+                <Property Name="HandlingUnitWeightVolumeIsFix" Type="Edm.Boolean" sap:label="Weight/Vol. Fixed" sap:quickinfo="Weight and Volume Fixed"/>
+                <Property Name="PackagingMaterialCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Pack. Mat. Cat." sap:quickinfo="Packaging Material Category"/>
+                <Property Name="HandlingUnitSecondExternalId" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Second HU Identification" sap:quickinfo="Handling Unit's 2nd External Identification"/>
+                <Property Name="HandlingUnitCustomerPackMat" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Customer packag.matl" sap:quickinfo="Partner's (Customer's or Vendor's) Packaging Material"/>
+                <Property Name="HandlingUnitPackingObjectType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Packing Object"/>
+                <Property Name="HandlingUnitPackingObjectKey" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Object Key" sap:quickinfo="Key for Object to Which the Handling Unit is Assigned"/>
+                <Property Name="SourceHandlingUnitUUID" Type="Edm.Guid" sap:label="Handle" sap:quickinfo="Worldwide unique key for VEKP-VENUM"/>
+                <Property Name="HandlingUnitIsClosed" Type="Edm.Boolean" sap:label="Closed" sap:quickinfo="Packaging Material is Closed Packaging"/>
+                <Property Name="HazardousSubstanceIndicator" Type="Edm.Boolean" sap:label="Rel. for dang. goods" sap:quickinfo="Packing Level is Relevant for Dangerous Goods"/>
+                <Property Name="HandlingUnitLowerLevelRefer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Higher-level HU" sap:quickinfo="Higher-Level Handling Unit"/>
+                <Property Name="HandlingUnitInternalStatus" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="HU Status" sap:quickinfo="Handling Unit Status"/>
+                <Property Name="PackingInstruction" Type="Edm.Guid" sap:label="Packing object" sap:quickinfo="Unique internal packing object number"/>
+                <Property Name="PackingInstructionStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Local Packing Status" sap:quickinfo="Local Packing Status for Single HU (Without Sub HUs)"/>
+                <Property Name="PackInstructExtLabelNotPrinted" Type="Edm.Boolean" sap:label="No Shipping Label" sap:quickinfo="Checkbox: Do Not Print External Shipping Label"/>
+                <Property Name="PackingInstructMaxLoadQuantity" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WeightUnit" sap:label="Permitted Load"/>
+                <Property Name="HandlingUnitIsComplete" Type="Edm.Boolean" sap:label="Status" sap:quickinfo="Status (at this time without functionality)"/>
+                <Property Name="HandlingUnitStockMgmtType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="HU system" sap:quickinfo="HU and IM Stock in Separate Systems"/>
+                <NavigationProperty Name="to_Plant" Relationship="cds_zsd_enhprinting.assoc_161A333A99D42604D67F710320FDECCC" FromRole="FromRole_assoc_161A333A99D42604D67F710320FDECCC" ToRole="ToRole_assoc_161A333A99D42604D67F710320FDECCC"/>
+            </EntityType>
             <EntityType Name="I_MaterialStdVHType" sap:label="Material" sap:value-list="true" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Material"/>
@@ -174,6 +245,23 @@
                 </Key>
                 <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" MaxLength="20"/>
                 <Property Name="DocumentType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Delivery Type"/>
+            </EntityType>
+            <EntityType Name="ZI_LABELPRINTINGType" sap:label="Entity for Label priniting" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LabelGroup"/>
+                </Key>
+                <Property Name="Delete_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Update_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LabelGroup" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LabelType" Type="Edm.String" MaxLength="200"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Printer" Type="Edm.String" MaxLength="100"/>
+                <Property Name="DocumentType" Type="Edm.String" MaxLength="50"/>
+                <Property Name="DocumentNumber" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="HUNumber" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="MatNumber" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="BatchNumber" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="NumberOfLabels" Type="Edm.Int32"/>
             </EntityType>
             <EntityType Name="ZI_ProductVHType" sap:label="Search Help for Product" sap:content-version="1">
                 <Key>
@@ -328,6 +416,10 @@
             <ComplexType Name="SAP__HeaderFooterField">
                 <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </ComplexType>
+            <Association Name="assoc_161A333A99D42604D67F710320FDECCC" sap:content-version="1">
+                <End Type="cds_zsd_enhprinting.I_HandlingUnitHeaderType" Multiplicity="1" Role="FromRole_assoc_161A333A99D42604D67F710320FDECCC"/>
+                <End Type="cds_zsd_enhprinting.I_PlantType" Multiplicity="0..1" Role="ToRole_assoc_161A333A99D42604D67F710320FDECCC"/>
+            </Association>
             <Association Name="assoc_4321270A7BD55F43D9B827300B7F1714" sap:content-version="1">
                 <End Type="cds_zsd_enhprinting.I_BatchType" Multiplicity="1" Role="FromRole_assoc_4321270A7BD55F43D9B827300B7F1714"/>
                 <End Type="cds_zsd_enhprinting.I_PlantType" Multiplicity="0..1" Role="ToRole_assoc_4321270A7BD55F43D9B827300B7F1714"/>
@@ -451,10 +543,12 @@
             <EntityContainer Name="cds_zsd_enhprinting_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
                 <EntitySet Name="I_Batch" EntityType="cds_zsd_enhprinting.I_BatchType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="I_Customer_VH" EntityType="cds_zsd_enhprinting.I_Customer_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_HandlingUnitHeader" EntityType="cds_zsd_enhprinting.I_HandlingUnitHeaderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="I_MaterialStdVH" EntityType="cds_zsd_enhprinting.I_MaterialStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
                 <EntitySet Name="I_Plant" EntityType="cds_zsd_enhprinting.I_PlantType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
                 <EntitySet Name="I_Supplier_VH" EntityType="cds_zsd_enhprinting.I_Supplier_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
                 <EntitySet Name="ZI_DocumentNumberVH" EntityType="cds_zsd_enhprinting.ZI_DocumentNumberVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_LABELPRINTING" EntityType="cds_zsd_enhprinting.ZI_LABELPRINTINGType" sap:content-version="1" sap:deletable-path="Delete_mc" sap:updatable-path="Update_mc"/>
                 <EntitySet Name="ZI_ProductVH" EntityType="cds_zsd_enhprinting.ZI_ProductVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="SAP__FormatSet" EntityType="cds_zsd_enhprinting.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_zsd_enhprinting.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
@@ -472,6 +566,10 @@
                 <AssociationSet Name="assoc_4321270A7BD55F43D9B827300B7F1714" Association="cds_zsd_enhprinting.assoc_4321270A7BD55F43D9B827300B7F1714" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="I_Batch" Role="FromRole_assoc_4321270A7BD55F43D9B827300B7F1714"/>
                     <End EntitySet="I_Plant" Role="ToRole_assoc_4321270A7BD55F43D9B827300B7F1714"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_161A333A99D42604D67F710320FDECCC" Association="cds_zsd_enhprinting.assoc_161A333A99D42604D67F710320FDECCC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="I_HandlingUnitHeader" Role="FromRole_assoc_161A333A99D42604D67F710320FDECCC"/>
+                    <End EntitySet="I_Plant" Role="ToRole_assoc_161A333A99D42604D67F710320FDECCC"/>
                 </AssociationSet>
                 <AssociationSet Name="to_HierarchySet" Association="cds_zsd_enhprinting.to_Hierarchy" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_Hierarchy"/>
@@ -702,6 +800,39 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.cds_zsd_enhprinting_Entities/I_HandlingUnitHeader" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Plant"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.cds_zsd_enhprinting_Entities/I_MaterialStdVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Capabilities.DeleteRestrictions">
                     <Record>
@@ -770,6 +901,46 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.cds_zsd_enhprinting_Entities/ZI_LABELPRINTING" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="Delete_mc"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Delete_mc</PropertyPath>
+                                <PropertyPath>Update_mc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="Update_mc"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.cds_zsd_enhprinting_Entities/ZI_ProductVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Capabilities.DeleteRestrictions">
                     <Record>
@@ -786,6 +957,33 @@
                         <PropertyValue Property="Updatable" Bool="false"/>
                     </Record>
                 </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/BatchNumber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/DocumentNumber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/DocumentType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/HUNumber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/LabelType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/MatNumber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/NumberOfLabels" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.ZI_LABELPRINTINGType/Printer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Optional"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SAPObjectNodeType">
@@ -847,14 +1045,41 @@
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataController6" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitStockMgmtType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HUMSYS&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/OrganizationBPName2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NAME2_GP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitTareWeight" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=TARAG_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackagingMaterialType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VHIART&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/FreeDefinedDate2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BATCH_DATE_FOR_FREE_USE_2&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitExternalID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=EXIDV&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/NetWeight" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NTGEW_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/LoadingPoint" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LSTEL&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/BatchIdentifyingPlant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/DistributionChannel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWKU&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitHeight" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HOEHE&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitCustomerPackMat" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VHILM_KU&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/DataController7" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
@@ -867,6 +1092,12 @@
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataController8" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitTareVolumeUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLEH&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitTareWeightUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GEWEI&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/Country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LAND1_GP&amp;origin=PO7_080"/>
@@ -895,6 +1126,9 @@
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/Language" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SPRAS&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitMaxVolume" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAVOL_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataController4" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
             </Annotations>
@@ -910,11 +1144,23 @@
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/NextInspectionDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=QNPDAT&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/StorageLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HUM_LGORT&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/FreeDefinedDate3" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BATCH_DATE_FOR_FREE_USE_3&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/WeightUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GEWEI&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitInternalID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VENUM&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/OrganizationBPName1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NAME1_GP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/Warehouse" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HUM_LGNUM&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/StockSegment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SGT_SCAT&amp;origin=PO7_080"/>
@@ -928,17 +1174,41 @@
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/DataController2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/CreationTime" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ERZET&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/InventoryValuationType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BWTAR_D&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/UnitOfMeasureDimension" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEABM&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LIFNR&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/SalesOrganization" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/AuthorizationGroup" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BRGRU&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitIsClosed" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KZGVH&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/BusinessPartnerName1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AD_NAME1&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/VolumeUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLEH&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitBaseUnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitExternalIdType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=EXIDA&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitWeightVolumeIsFix" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GEWFX&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/BusinessPartnerName1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AD_NAME1&amp;origin=PO7_080"/>
@@ -946,11 +1216,23 @@
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataController7" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HUM_WERKS&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/DataControllerSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_XDCSET&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/DataController8" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HazardousSubstanceIndicator" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ADGE_DG&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackagingMaterial" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VHILM&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/SalesDocumentItemCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PSTYV&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/FreeDefinedDate5" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BATCH_DATE_FOR_FREE_USE_5&amp;origin=PO7_080"/>
@@ -964,6 +1246,12 @@
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataController2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_DATA_CONTROLLER&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitTareVolume" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=TAVOL_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackagingMaterialCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VELTP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/Batch" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D&amp;origin=PO7_080"/>
             </Annotations>
@@ -972,6 +1260,9 @@
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/MatlBatchAvailabilityDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VERAB&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitInternalStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HU_STATUS&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/DataControllerSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BU_XDCSET&amp;origin=PO7_080"/>
@@ -988,8 +1279,14 @@
             <Annotations Target="cds_zsd_enhprinting.ZI_ProductVHType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRODUCTNUMBER&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitNetVolume" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NTVOL_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/CountryOfOrigin" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HERKL&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackingInstruction" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PL_PACKNR&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/PlantCustomer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNNR_WK&amp;origin=PO7_080"/>
@@ -997,8 +1294,14 @@
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/AddressID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ADRNR&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/GrossWeight" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BRGEW_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/ExportAndImportProductGroup" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTVER&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/ShippingPoint" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VSTEL&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/BatchCertificationDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DZFDAT&amp;origin=PO7_080"/>
@@ -1008,6 +1311,9 @@
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/DistributionChannel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWIV&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitLength" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LAENG&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/ValuationArea" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BWKEY&amp;origin=PO7_080"/>
@@ -1039,6 +1345,9 @@
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/StreetName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=STRAS_GP&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackagingMaterialGroup" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAGRV&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/PlantCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VLFKZ&amp;origin=PO7_080"/>
             </Annotations>
@@ -1051,6 +1360,9 @@
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/IsBusinessPurposeCompleted" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CVP_XBLCK&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitMaxWeight" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAGEW_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/FactoryCalendar" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FABKL&amp;origin=PO7_080"/>
             </Annotations>
@@ -1059,6 +1371,9 @@
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/IsBusinessPurposeCompleted" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CVP_XBLCK&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitPackingObjectKey" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VPOBJKEY&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_PlantType/SalesOrganization" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKOIV&amp;origin=PO7_080"/>
@@ -1084,14 +1399,38 @@
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNNR&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitVolumeTolerance" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLTO&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitWidth" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BREIT&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackInstructExtLabelNotPrinted" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PL_SHIPLABEL&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Customer_VHType/CityName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ORT01_GP&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitPackingObjectType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VPOBJ&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_Supplier_VHType/SupplierName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NAME1_GP&amp;origin=PO7_080"/>
             </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/GrossVolume" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BTVOL_VEKP&amp;origin=PO7_080"/>
+            </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/BatchIsMarkedForDeletion" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LVOC1&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/PackingInstructMaxLoadQuantity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PL_MAXSTWE&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitIsComplete" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLLS&amp;origin=PO7_080"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_enhprinting.I_HandlingUnitHeaderType/HandlingUnitWeightTolerance" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GEWTO&amp;origin=PO7_080"/>
             </Annotations>
             <Annotations Target="cds_zsd_enhprinting.I_BatchType/ShelfLifeExpirationDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VFDAT&amp;origin=PO7_080"/>

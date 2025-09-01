@@ -3,11 +3,21 @@
     xmlns="sap.m" 	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core">
-    <Page id="page" title="{i18n>title}" showHeader="false">
+    <Page id="page" title="{i18n>title}">
+	<customHeader>
+	<Bar>
+	<contentMiddle>
+	<Title text="{i18n>title}"/>
+	</contentMiddle>
+	<contentRight>
+	<Button text ="{i18n>clearValue}" press="onResetValue"/>
+	</contentRight>
+	</Bar>
+	</customHeader>
     	<f:SimpleForm
 			editable="true"
 			layout="ResponsiveGridLayout"
-			title="{i18n>title}"
+			title=""
 			labelSpanXL="3"
 			labelSpanL="3"
 			labelSpanM="3"
@@ -23,19 +33,19 @@
 			singleContainerFullSize="true" >
 			<f:content>
 				<Label text="{i18n>labelGroup}" required="true"/>
-				<Select items="{oViewModel>/LabelGroupData}" forceSelection="false" change="onSelectLabelGroup">
+				<Select items="{oViewModel>/LabelGroupData}" selectedKey="{oViewModel>/LabelGroupValue}" forceSelection="false" change="onSelectLabelGroup">
 				<core:Item key="{oViewModel>LabelGroup}" text="{oViewModel>LabelGroup}"/>
 				</Select>
 				<Label text="{i18n>labelType}" required="true"/>
-				<Select items="{oViewModel>/LabelTypeData}" forceSelection="false" change="onSelectLabelType">
+				<Select items="{oViewModel>/LabelTypeData}" selectedKey="{oViewModel>/LabelTypeValue}" forceSelection="false" change="onSelectLabelType">
 				<core:Item key="{oViewModel>LabelType}" text="{oViewModel>LabelType}"/>
 				</Select>
 				<Label text="{i18n>plant}" required="true"/>
-				<Input showValueHelp="true" value="{oViewModel>/Plant}" valueHelpRequest="openPlantVH"/>
+				<Input showValueHelp="true" value="{oViewModel>/PlantValue}" valueHelpRequest="openPlantVH"/>
                 <Label text="{i18n>printer}" required="true"/>
 				<Select/>
                 <Label text="{i18n>documentType}" required="true"/>
-				<Select items="{oViewModel>/DocTypeData}" forceSelection="false" selectedKey="{oViewModel>/DocumentType}" change="onSelectDocType">
+				<Select items="{oViewModel>/DocTypeData}" forceSelection="false" selectedKey="{oViewModel>/DocTypeValue}" change="onSelectDocType">
 				<core:Item key="{oViewModel>DocumentType}" text="{oViewModel>DocumentType}"/>
 				</Select>
 				<Label text="{i18n>documentNumber}" required="true"/>
@@ -79,13 +89,13 @@
 			<core:Item key="{Product}" text="{Product}" />
 		 </MultiInput>
                  <Label text="{i18n>NOOfLabels}" required="true"/>
-				<Input/>
+				<Input value="{oViewModel>/NumberOfLabelsValue}"/>
 			</f:content>
 		</f:SimpleForm>
         	<footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button text="{i18n>exceute}" type="Emphasized" />
+				<Button text="{i18n>exceute}" type="Emphasized" press="onExecute"/>
 				
 			</OverflowToolbar>
 		</footer>

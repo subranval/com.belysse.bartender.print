@@ -3,7 +3,7 @@
   xmlns:form="sap.ui.layout.form" 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable"
   xmlns:table="sap.ui.table"  xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-  <Dialog title="{i18n>selectPlant}" contentWidth="100%" contentHeight="100%">
+  <!-- <Dialog title="{i18n>selectPlant}" contentWidth="100%" contentHeight="100%">
    <smartFilterBar:SmartFilterBar id="idSmartFilterBar"  entitySet="I_Plant" search="onFilterSearch" showFilterConfiguration="false">
    <smartFilterBar:controlConfiguration>
    <smartFilterBar:ControlConfiguration controlType="input" key="Plant" visibleInAdvancedArea="true" label="{i18n>searchTerm}"/>
@@ -18,5 +18,19 @@
     <endButton>
       <Button text="{i18n>close}" type="Emphasized" press="onClosePlant" />
     </endButton>
-  </Dialog>
+  </Dialog> -->
+  <SelectDialog
+		title="{i18n>plant}"
+		items="{/I_Plant}"
+		search="_handleValueHelpSearch"
+		confirm="_handlePlantVHClose"
+		cancel="_handlePlantVHClose"
+		multiSelect="false">
+		<StandardListItem
+			icon=""
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Plant}"
+			description="{PlantName}" />
+	</SelectDialog>
 </core:FragmentDefinition>

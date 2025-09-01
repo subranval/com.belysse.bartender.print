@@ -4,7 +4,7 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
     "sap/m/Token"
-], (Controller, JSONModel, Fragment, Filter,Token) => {
+], (Controller, JSONModel, Fragment, Filter, Token) => {
     "use strict";
 
     return Controller.extend("com.belysse.bartender.print.controller.Home", {
@@ -44,24 +44,14 @@ sap.ui.define([
                 oViewModel.setProperty("/HUFieldVisible", true);
                 oViewModel.setProperty("/BatchFieldVisible", true);
             }
-
-        },
-        onSelectLabelType: function (oEvent) {
-            let sSelectedKey = oEvent.getSource().getSelectedKey();
-            let oViewModel = this.getView().getModel("oViewModel");
-            oViewModel.setProperty("/HUFieldVisible", false);
-            oViewModel.setProperty("/BatchFieldVisible", false);
-            oViewModel.setProperty("/MaterialVisible", false);
-
-            if (sSelectedKey === "") {
-
-            }
+            this.onResetValue();
+            oViewModel.setProperty("/LabelGroupValue", sSelectedKey);
 
         },
         onSelectDocType: function (oEvent) {
             let sSelectedKey = oEvent.getSource().getSelectedKey();
             let oViewModel = this.getView().getModel("oViewModel");
-            oViewModel.setProperty("/DocumentType", sSelectedKey);
+            oViewModel.setProperty("/DocTypeValue", sSelectedKey);
         },
         openPlantVH: function () {
             this.getView().setBusy(true);
@@ -93,7 +83,7 @@ sap.ui.define([
         openDocumentNoVH: function () {
             let oView = this.getView();
             let sFilterDocType;
-            let sDocumentType = this.getView().getModel("oViewModel").getProperty("/DocumentType");
+            let sDocumentType = this.getView().getModel("oViewModel").getProperty("/DocTypeValue");
             if (!sDocumentType) {
                 sap.m.MessageToast.show("Please select Document type first!");
                 return;
@@ -112,7 +102,7 @@ sap.ui.define([
             }
             if (!this._pValueHelpDialog) {
                 this._pValueHelpDialog = Fragment.load({
-                   
+
                     name: "com.belysse.bartender.print.view.fragments.DocumentNoVH",
                     controller: this
                 }).then(function (oValueHelpDialog) {
@@ -149,7 +139,7 @@ sap.ui.define([
 
             if (!this._pBatchVHDialog) {
                 this._pBatchVHDialog = Fragment.load({
-                    
+
                     name: "com.belysse.bartender.print.view.fragments.BatchVH",
                     controller: this
                 }).then(function (oValueHelpDialog) {
@@ -181,7 +171,7 @@ sap.ui.define([
 
             if (!this._pMaterialVHDialog) {
                 this._pMaterialVHDialog = Fragment.load({
-                   
+
                     name: "com.belysse.bartender.print.view.fragments.MaterialVH",
                     controller: this
                 }).then(function (oValueHelpDialog) {
@@ -213,7 +203,7 @@ sap.ui.define([
 
             if (!this._pHUNoVHDialog) {
                 this._pHUNoVHDialog = Fragment.load({
-                   
+
                     name: "com.belysse.bartender.print.view.fragments.HUNoVH",
                     controller: this
                 }).then(function (oValueHelpDialog) {
@@ -240,5 +230,74 @@ sap.ui.define([
                 });
             }
         },
+        _handlePlantVHClose: function (oEvent) {
+            let sPlantName = oEvent.getParameter("selectedItem").getTitle();
+            this.getView().getModel("oViewModel").setProperty("/PlantValue", sPlantName);
+        },
+        onExecute: function () {
+            let oViewData = this.getView().getModel("oViewModel").getData();
+            let sLabelGroup = oViewData.LabelGroupValue;
+            let sLabelType = oViewData.LabelTypeValue;
+            let sPlant = oViewData.PlantValue;
+            let sDocType = oViewData.DocTypeValue;
+            let iNumberOfLabelsValue = oViewData.NumberOfLabelsValue;
+            let aDocNoTokens = this.getView().byId("DocTypeInput").getTokens();
+            let sDocNumber = aDocNoTokens.map(oToken => oToken.getText()).join(",");
+            let oPostData = {
+                LabelGroup: sLabelGroup,
+                LabelType: sLabelType,
+                Plant: sPlant,
+                Printer: '',
+                DocumentType: sDocType,
+                DocumentNumber: sDocNumber,
+                NumberOfLabels: parseInt(iNumberOfLabelsValue)
+            };
+            if (oViewData.MaterialVisible) {
+                let aMatTokens = this.getView().byId("MaterialInput").getTokens();
+                let sMatNumber = aMatTokens.map(oToken => oToken.getText()).join(",");
+                oPostData["MatNumber"] = sMatNumber;
+            }
+            if (oViewData.BatchFieldVisible) {
+                let aBatchTokens = this.getView().byId("BatchInput").getTokens();
+                let sBatchNumber = aBatchTokens.map(oToken => oToken.getText()).join(",");
+                oPostData["BatchNumber"] = sBatchNumber;
+            }
+            if (oViewData.HUFieldVisible) {
+                let aHUTokens = this.getView().byId("HUInput").getTokens();
+                let sHUNumber = aHUTokens.map(oToken => oToken.getText()).join(",");
+                oPostData["HUNumber"] = sHUNumber;
+            }
+            this.getView().getModel().create("/ZI_LABELPRINTING", oPostData, {
+                success: function () {
+                    sap.m.MessageBox.success(this.getView().getModel("i18n").getResourceBundle().getText("msgSuccessPrint"), {
+                        onClose: function () {
+                            this.onResetValue();
+                        }.bind(this)
+                    });
+
+
+                }.bind(this),
+                error: function () {
+
+                }
+            });
+
+
+
+
+        },
+        onResetValue: function () {
+            let oViewModel = this.getView().getModel("oViewModel");
+            oViewModel.setProperty("/LabelGroupValue", "");
+            oViewModel.setProperty("/LabelTypeValue", "");
+            oViewModel.setProperty("/PlantValue", "");
+            oViewModel.setProperty("/DocTypeValue", "");
+            oViewModel.setProperty("/NumberOfLabelsValue", "");
+            this.getView().byId("DocTypeInput").setTokens([]);
+            this.getView().byId("HUInput").setTokens([]);
+            this.getView().byId("BatchInput").setTokens([]);
+            this.getView().byId("MaterialInput").setTokens([]);
+
+        }
     });
 });
