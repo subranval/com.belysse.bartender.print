@@ -4,16 +4,17 @@
 	<SelectDialog
 		id="huvalueHelpDialog"
 		title="{i18n>HUNumber}"
-		items="{/I_HandlingUnitHeader}"
+		items="{oHUModel>/HandlingUnit}"
 		search="_handleValueHelpSearch"
 		confirm="_handleHUVHClose"
 		cancel="_handleHUVHClose"
+		rememberSelections="true"
 		multiSelect="true">
 		<StandardListItem
 			icon=""
 			iconDensityAware="false"
 			iconInset="false"
-			title="{HandlingUnitExternalID}"
+			title="{oHUModel>HandlingUnitExternalID}"
 			description="" />
 	</SelectDialog>
 </core:FragmentDefinition>

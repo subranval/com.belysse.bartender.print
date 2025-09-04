@@ -3,14 +3,20 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
-    "sap/m/Token"
-], (Controller, JSONModel, Fragment, Filter, Token) => {
+    "sap/m/Token",
+    "sap/ui/model/odata/v4/ODataModel"
+], (Controller, JSONModel, Fragment, Filter, Token,ODataModel) => {
     "use strict";
 
     return Controller.extend("com.belysse.bartender.print.controller.Home", {
         onInit() {
             var oViewModel = new JSONModel(sap.ui.require.toUrl("com/belysse/bartender/print/model/model.json"));
             this.getView().setModel(oViewModel, "oViewModel");
+            var oModel = new ODataModel({
+                serviceUrl: "/sap/opu/odata4/sap/api_handlingunit/srvd_a2x/sap/handlingunit/0001/"
+            });
+            // Set model to view or component
+            this.getView().setModel(oModel, "oHUModel");
 
         },
         onSelectLabelGroup: function (oEvent) {
@@ -243,6 +249,10 @@ sap.ui.define([
             let iNumberOfLabelsValue = oViewData.NumberOfLabelsValue;
             let aDocNoTokens = this.getView().byId("DocTypeInput").getTokens();
             let sDocNumber = aDocNoTokens.map(oToken => oToken.getText()).join(",");
+            if(!sLabelGroup || !sLabelType || !sPlant || !sDocType || !iNumberOfLabelsValue || aDocNoTokens.length === 0){
+                sap.m.MessageToast.show(this.getView().getModel("i18n").getResourceBundle().getText("FillMandatoryFields"));
+                return;
+            }
             let oPostData = {
                 LabelGroup: sLabelGroup,
                 LabelType: sLabelType,
@@ -250,7 +260,10 @@ sap.ui.define([
                 Printer: '',
                 DocumentType: sDocType,
                 DocumentNumber: sDocNumber,
-                NumberOfLabels: parseInt(iNumberOfLabelsValue)
+                NumberOfLabels: parseInt(iNumberOfLabelsValue),
+                MatNumber:"",
+                BatchNumber:"",
+                HUNumber:""
             };
             if (oViewData.MaterialVisible) {
                 let aMatTokens = this.getView().byId("MaterialInput").getTokens();

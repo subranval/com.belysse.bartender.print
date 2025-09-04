@@ -1,48 +1,102 @@
 {
-  "HUFieldVisible":false,
-  "BatchFieldVisible":false,
-  "MaterialVisible":false,
+  "HUFieldVisible": false,
+  "BatchFieldVisible": false,
+  "MaterialVisible": false,
   "LabelGroupData": [
-    { "LabelGroup": "Inbound" },
-    { "LabelGroup": "Production" },
-    { "LabelGroup": "Production + Shipping" },
-    { "LabelGroup": "Shipping" }
+    {
+      "LabelGroup": "Inbound"
+    },
+    {
+      "LabelGroup": "Production"
+    },
+    {
+      "LabelGroup": "Production + Shipping"
+    },
+    {
+      "LabelGroup": "Shipping"
+    }
   ],
   "LabelTypeDataMap": {
     "Inbound": [
-      { "LabelType": "Backing" }
+      {
+        "LabelType": "Backing"
+      }
     ],
     "Production": [
-      { "LabelType": "PRDDOOS (Box label)" },
-      { "LabelType": "PRDTGL (Tile Label)" },
-      { "LabelType": "PRDPLA" },
-      { "LabelType": "ITC_PRDROL" },
-      { "LabelType": "PRDMROL_02" },
-      { "LabelType": "PRDMROL" }
+      {
+        "LabelType": "PRDDOOS (Box label)"
+      },
+      {
+        "LabelType": "PRDTGL (Tile Label)"
+      },
+      {
+        "LabelType": "PRDPLA"
+      },
+      {
+        "LabelType": "ITC_PRDROL"
+      },
+      {
+        "LabelType": "PRDMROL_02"
+      },
+      {
+        "LabelType": "PRDMROL"
+      }
     ],
     "Production + Shipping": [
-      { "LabelType": "PRDPALLET (pallet label)" }
+      {
+        "LabelType": "PRDPALLET (pallet label)"
+      }
     ],
     "Shipping": [
-      { "LabelType": "VRZROL (Shipping label ITC)" },
-      { "LabelType": "VRZTGL (shipping label Modulyss)" },
-      { "LabelType": "ARTCO" },
-      { "LabelType": "SSCC" },
-      { "LabelType": "Retour" },
-      { "LabelType": "HU01" }
+      {
+        "LabelType": "VRZROL (Shipping label ITC)"
+      },
+      {
+        "LabelType": "VRZTGL (shipping label Modulyss)"
+      },
+      {
+        "LabelType": "ARTCO"
+      },
+      {
+        "LabelType": "SSCC"
+      },
+      {
+        "LabelType": "Retour"
+      },
+      {
+        "LabelType": "HU01"
+      }
     ]
   },
   "DocTypeDataMap": {
     "Inbound": [
-      { "DocumentType": "Inbound delivery" }
+      {
+        "DocumentType": "Inbound delivery"
+      }
     ],
     "Production": [
-      { "DocumentType": "Production Order" }
+      {
+        "DocumentType": "Production Order"
+      }
     ],
-    "Production + Shipping": [],
+    "Production + Shipping": [
+      {
+        "DocumentType": "Production Order"
+      },
+      {
+        "DocumentType": "Freight Order"
+      },
+      {
+        "DocumentType": "Delivery"
+      }
+    ],
     "Shipping": [
-      { "DocumentType": "Freight Order" },
-      { "DocumentType": "Delivery" }
+      {
+        "DocumentType": "Freight Order"
+      },
+      {
+        "DocumentType": "Delivery"
+      }
     ]
   }
 }

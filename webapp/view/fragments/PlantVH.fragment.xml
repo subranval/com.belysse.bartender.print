@@ -25,6 +25,7 @@
 		search="_handleValueHelpSearch"
 		confirm="_handlePlantVHClose"
 		cancel="_handlePlantVHClose"
+    rememberSelections="true"
 		multiSelect="false">
 		<StandardListItem
 			icon=""

@@ -62,7 +62,7 @@
 				<MultiInput id="HUInput" visible="{oViewModel>/HUFieldVisible}"
 			
 			suggestionItems="{
-				path: '/I_HandlingUnitHeader',
+				path: 'HandlingUnit',
 				sorter: { path: 'HandlingUnitExternalID' }
 			}"
 			valueHelpRequest="openHUNoVH">

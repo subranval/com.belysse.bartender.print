@@ -8,6 +8,7 @@
 		search="_handleValueHelpSearch"
 		confirm="_handleBatchVHClose"
 		cancel="_handleBatchVHClose"
+		rememberSelections="true"
 		multiSelect="true">
 		<StandardListItem
 			icon=""
